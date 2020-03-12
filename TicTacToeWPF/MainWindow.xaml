@@ -6,6 +6,16 @@
         xmlns:local="clr-namespace:TicTacToeWPF"
         mc:Ignorable="d"
         Title="LernMoments TicTacToe in WPF" Height="500" Width="500">
-    <Grid>
+    <Grid x:Name="Spielfeld">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" x:Name="Spalte_0"/>
+            <ColumnDefinition Width="*" x:Name="Spalte_1"/>
+            <ColumnDefinition Width="*" x:Name="Spalte_2"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" x:Name="Zeile_0"/>
+            <RowDefinition Height="*" x:Name="Zeile_1"/>
+            <RowDefinition Height="*" x:Name="Zeile_2"/>
+        </Grid.RowDefinitions>
     </Grid>
 </Window>
