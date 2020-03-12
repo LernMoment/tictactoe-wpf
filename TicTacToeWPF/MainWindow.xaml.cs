@@ -79,34 +79,58 @@ namespace TicTacToeWPF
         {
             if (IstGleicherSpielstein(0, 1, 2))
             {
+                kaestchen_0_0.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_1_0.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_2_0.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
                 return true;
             }
             else if (IstGleicherSpielstein(3, 4, 5))
             {
+                kaestchen_0_1.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_1_1.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_2_1.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
                 return true;
             }
             else if (IstGleicherSpielstein(6, 7, 8))
             {
+                kaestchen_0_2.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_1_2.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_2_2.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
                 return true;
             }
             else if (IstGleicherSpielstein(0, 3, 6))
             {
+                kaestchen_0_0.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_0_1.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_0_2.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
                 return true;
             }
             else if (IstGleicherSpielstein(1, 4, 7))
             {
+                kaestchen_1_0.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_1_1.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_1_2.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
                 return true;
             }
             else if (IstGleicherSpielstein(2, 5, 8))
             {
+                kaestchen_2_0.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_2_1.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_2_2.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
                 return true;
             }
             else if (IstGleicherSpielstein(0, 4, 8))
             {
+                kaestchen_0_0.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_1_1.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_2_2.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
                 return true;
             }
             else if (IstGleicherSpielstein(6, 4, 2))
             {
+                kaestchen_2_0.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_1_1.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
+                kaestchen_0_2.Background = (Brush)new BrushConverter().ConvertFrom("#FFCD00");
                 return true;
             }
 
@@ -158,7 +182,7 @@ namespace TicTacToeWPF
             kaestchen_2_0.Content = string.Empty;
             kaestchen_0_1.Content = string.Empty;
             kaestchen_1_1.Content = string.Empty;
-            keastchen_2_1.Content = string.Empty;
+            kaestchen_2_1.Content = string.Empty;
             kaestchen_0_2.Content = string.Empty;
             kaestchen_1_2.Content = string.Empty;
             kaestchen_2_2.Content = string.Empty;
@@ -168,7 +192,7 @@ namespace TicTacToeWPF
             kaestchen_2_0.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
             kaestchen_0_1.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
             kaestchen_1_1.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
-            keastchen_2_1.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_2_1.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
             kaestchen_0_2.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
             kaestchen_1_2.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
             kaestchen_2_2.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
@@ -178,7 +202,7 @@ namespace TicTacToeWPF
             kaestchen_2_0.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
             kaestchen_0_1.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
             kaestchen_1_1.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
-            keastchen_2_1.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_2_1.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
             kaestchen_0_2.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
             kaestchen_1_2.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
             kaestchen_2_2.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
