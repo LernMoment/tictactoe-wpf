@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace TicTacToeWPF
 {
@@ -15,7 +16,11 @@ namespace TicTacToeWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private const string _spielsteinErsterSpieler = "X";
+        private const string _spielsteinZweiterSpieler = "O";
+
         private KaestchenStatus[] _kaestchen;
+        private bool _istErsterSpielerAmZug;
 
         public MainWindow()
         {
@@ -24,9 +29,25 @@ namespace TicTacToeWPF
             StarteNeuesSpiel();
         }
 
+        private void kaestchen_Click(object sender, RoutedEventArgs e)
+        {
+            var aktuellesUiKaestchen = (Button)sender;
+            if (_istErsterSpielerAmZug)
+            {
+                aktuellesUiKaestchen.Content = _spielsteinErsterSpieler;
+                _istErsterSpielerAmZug = false;
+            }
+            else
+            {
+                aktuellesUiKaestchen.Content = _spielsteinZweiterSpieler;
+                _istErsterSpielerAmZug = true;
+            }
+        }
+
         private void StarteNeuesSpiel()
         {
             KaestchenLeeren();
+            _istErsterSpielerAmZug = true;
         }
 
         private void KaestchenLeeren()
@@ -45,5 +66,6 @@ namespace TicTacToeWPF
             kaestchen_1_2.Content = string.Empty;
             kaestchen_2_2.Content = string.Empty;
         }
+
     }
 }
