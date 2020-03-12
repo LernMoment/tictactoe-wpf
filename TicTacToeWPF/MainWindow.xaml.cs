@@ -66,11 +66,13 @@ namespace TicTacToeWPF
 
             if (IstSpielGewonnen())
             {
+                hinweisLabel.Content = "Spiel gewonnen";
                 _istSpielBeendet = true;
             }
 
             if (IstSpielBeendet())
             {
+                hinweisLabel.Content = "Spiel unentschieden";
                 _istSpielBeendet = true;
             }
         }
@@ -165,6 +167,9 @@ namespace TicTacToeWPF
         private void StarteNeuesSpiel()
         {
             KaestchenLeeren();
+            
+            hinweisLabel.Content = string.Empty;
+
             _istErsterSpielerAmZug = true;
             _istSpielBeendet = false;
         }
