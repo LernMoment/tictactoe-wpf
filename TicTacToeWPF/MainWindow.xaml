@@ -6,6 +6,17 @@
         xmlns:local="clr-namespace:TicTacToeWPF"
         mc:Ignorable="d"
         Title="LernMoments TicTacToe in WPF" Height="500" Width="500">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#00A8C6"/>
+            <Setter Property="Foreground" Value="#F9F2E7"/>
+            <Setter Property="BorderThickness" Value="0.5"/>
+            <Setter Property="BorderBrush" Value="LightGray"/>
+            <Setter Property="FontSize" Value="70"/>
+        </Style>
+    </Window.Resources>
+    
     <Grid x:Name="Spielfeld">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" x:Name="Spalte_0"/>
