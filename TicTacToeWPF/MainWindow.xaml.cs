@@ -7,8 +7,8 @@ namespace TicTacToeWPF
     enum KaestchenStatus
     {
         Leer,
-        X,
-        O
+        ErsterSpieler,
+        ZweiterSpieler
     }
 
     /// <summary>
@@ -32,14 +32,24 @@ namespace TicTacToeWPF
         private void kaestchen_Click(object sender, RoutedEventArgs e)
         {
             var aktuellesUiKaestchen = (Button)sender;
+            var spaltenIndex = Grid.GetColumn(aktuellesUiKaestchen);
+            var zeilenIndex = Grid.GetRow(aktuellesUiKaestchen);
+            var logikIndex = spaltenIndex + (zeilenIndex * 3);
+            if (_kaestchen[logikIndex] != KaestchenStatus.Leer)
+            {
+                return;
+            }
+
             if (_istErsterSpielerAmZug)
             {
                 aktuellesUiKaestchen.Content = _spielsteinErsterSpieler;
+                _kaestchen[logikIndex] = KaestchenStatus.ErsterSpieler;
                 _istErsterSpielerAmZug = false;
             }
             else
             {
                 aktuellesUiKaestchen.Content = _spielsteinZweiterSpieler;
+                _kaestchen[logikIndex] = KaestchenStatus.ZweiterSpieler;
                 _istErsterSpielerAmZug = true;
             }
         }
@@ -53,6 +63,10 @@ namespace TicTacToeWPF
         private void KaestchenLeeren()
         {
             _kaestchen = new KaestchenStatus[9];
+            for (int i = 0; i < _kaestchen.Length - 1; i++)
+            {
+                _kaestchen[i] = KaestchenStatus.Leer;
+            }
 
             kaestchen_0_0.Content = string.Empty;
             kaestchen_1_0.Content = string.Empty;
