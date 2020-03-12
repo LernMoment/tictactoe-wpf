@@ -22,6 +22,7 @@ namespace TicTacToeWPF
 
         private KaestchenStatus[] _kaestchen;
         private bool _istErsterSpielerAmZug;
+        private bool _istSpielBeendet;
 
         public MainWindow()
         {
@@ -32,6 +33,12 @@ namespace TicTacToeWPF
 
         private void kaestchen_Click(object sender, RoutedEventArgs e)
         {
+            if (_istSpielBeendet)
+            {
+                StarteNeuesSpiel();
+                return;
+            }
+
             var aktuellesUiKaestchen = (Button)sender;
             var spaltenIndex = Grid.GetColumn(aktuellesUiKaestchen);
             var zeilenIndex = Grid.GetRow(aktuellesUiKaestchen);
@@ -56,12 +63,31 @@ namespace TicTacToeWPF
                 _kaestchen[logikIndex] = KaestchenStatus.ZweiterSpieler;
                 _istErsterSpielerAmZug = true;
             }
+
+            if (IstSpielBeendet())
+            {
+                _istSpielBeendet = true;
+            }
+        }
+
+        private bool IstSpielBeendet()
+        {
+            foreach (var aktuellesKaestchen in _kaestchen)
+            {
+                if (aktuellesKaestchen == KaestchenStatus.Leer)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private void StarteNeuesSpiel()
         {
             KaestchenLeeren();
             _istErsterSpielerAmZug = true;
+            _istSpielBeendet = false;
         }
 
         private void KaestchenLeeren()
@@ -75,14 +101,32 @@ namespace TicTacToeWPF
             kaestchen_0_0.Content = string.Empty;
             kaestchen_1_0.Content = string.Empty;
             kaestchen_2_0.Content = string.Empty;
-
             kaestchen_0_1.Content = string.Empty;
             kaestchen_1_1.Content = string.Empty;
             keastchen_2_1.Content = string.Empty;
-
             kaestchen_0_2.Content = string.Empty;
             kaestchen_1_2.Content = string.Empty;
             kaestchen_2_2.Content = string.Empty;
+
+            kaestchen_0_0.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_1_0.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_2_0.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_0_1.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_1_1.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            keastchen_2_1.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_0_2.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_1_2.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_2_2.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+
+            kaestchen_0_0.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_1_0.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_2_0.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_0_1.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_1_1.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            keastchen_2_1.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_0_2.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_1_2.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_2_2.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
         }
 
     }
