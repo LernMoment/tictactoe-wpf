@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -63,10 +64,65 @@ namespace TicTacToeWPF
                 _istErsterSpielerAmZug = true;
             }
 
+            if (IstSpielGewonnen())
+            {
+                _istSpielBeendet = true;
+            }
+
             if (IstSpielBeendet())
             {
                 _istSpielBeendet = true;
             }
+        }
+
+        private bool IstSpielGewonnen()
+        {
+            if (IstGleicherSpielstein(0, 1, 2))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(3, 4, 5))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(6, 7, 8))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(0, 3, 6))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(1, 4, 7))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(2, 5, 8))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(0, 4, 8))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(6, 4, 2))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool IstGleicherSpielstein(int indexEins, int indexZwei, int indexDrei)
+        {
+            if (_kaestchen[indexEins] != KaestchenStatus.Leer
+                && _kaestchen[indexEins] == _kaestchen[indexZwei]
+                && _kaestchen[indexZwei] == _kaestchen[indexDrei])
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private bool IstSpielBeendet()
