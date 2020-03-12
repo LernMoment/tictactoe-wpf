@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
@@ -31,7 +30,7 @@ namespace TicTacToeWPF
             StarteNeuesSpiel();
         }
 
-        private void kaestchen_Click(object sender, RoutedEventArgs e)
+        private void Kaestchen_Click(object sender, RoutedEventArgs e)
         {
             if (_istSpielBeendet)
             {
