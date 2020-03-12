@@ -67,12 +67,16 @@ namespace TicTacToeWPF
             if (IstSpielGewonnen())
             {
                 hinweisLabel.Content = "Spiel gewonnen";
+                hinweisLabel.Visibility = Visibility.Visible;
+
                 _istSpielBeendet = true;
             }
 
             if (IstSpielBeendet())
             {
                 hinweisLabel.Content = "Spiel unentschieden";
+                hinweisLabel.Visibility = Visibility.Visible;
+
                 _istSpielBeendet = true;
             }
         }
@@ -169,6 +173,7 @@ namespace TicTacToeWPF
             KaestchenLeeren();
             
             hinweisLabel.Content = string.Empty;
+            hinweisLabel.Visibility = Visibility.Hidden;
 
             _istErsterSpielerAmZug = true;
             _istSpielBeendet = false;
