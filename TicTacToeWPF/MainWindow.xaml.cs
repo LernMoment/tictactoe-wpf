@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace TicTacToeWPF
 {
@@ -35,6 +36,7 @@ namespace TicTacToeWPF
             var spaltenIndex = Grid.GetColumn(aktuellesUiKaestchen);
             var zeilenIndex = Grid.GetRow(aktuellesUiKaestchen);
             var logikIndex = spaltenIndex + (zeilenIndex * 3);
+
             if (_kaestchen[logikIndex] != KaestchenStatus.Leer)
             {
                 return;
@@ -49,6 +51,8 @@ namespace TicTacToeWPF
             else
             {
                 aktuellesUiKaestchen.Content = _spielsteinZweiterSpieler;
+                aktuellesUiKaestchen.Background = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+                aktuellesUiKaestchen.Foreground = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
                 _kaestchen[logikIndex] = KaestchenStatus.ZweiterSpieler;
                 _istErsterSpielerAmZug = true;
             }
