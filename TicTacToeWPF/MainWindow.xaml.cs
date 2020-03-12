@@ -1,17 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TicTacToeWPF
 {
@@ -23,6 +11,23 @@ namespace TicTacToeWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            StarteNeuesSpiel();
+        }
+
+        private void StarteNeuesSpiel()
+        {
+            Kasten_0_0.Content = string.Empty;
+            Kasten_1_0.Content = string.Empty;
+            Kasten_2_0.Content = string.Empty;
+
+            Kasten_0_1.Content = string.Empty;
+            Kasten_1_1.Content = string.Empty;
+            Kasten_2_1.Content = string.Empty;
+
+            Kasten_0_2.Content = string.Empty;
+            Kasten_1_2.Content = string.Empty;
+            Kasten_2_2.Content = string.Empty;
         }
     }
 }
