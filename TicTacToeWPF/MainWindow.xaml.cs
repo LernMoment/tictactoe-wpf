@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace TicTacToeWPF
 {
@@ -24,11 +25,19 @@ namespace TicTacToeWPF
         private bool _istErsterSpielerAmZug;
         private bool _istSpielBeendet;
 
+        private readonly DispatcherTimer _blendeHinweisAusTimer = new DispatcherTimer();
+
         public MainWindow()
         {
             InitializeComponent();
-
+            _blendeHinweisAusTimer.Tick += BlendeHinweisAus;
             StarteNeuesSpiel();
+        }
+
+        private void BlendeHinweisAus(object sender, EventArgs e)
+        {
+            _blendeHinweisAusTimer.Stop();
+            hinweisLabel.Visibility = Visibility.Hidden;
         }
 
         private void Kaestchen_Click(object sender, RoutedEventArgs e)
@@ -46,6 +55,7 @@ namespace TicTacToeWPF
 
             if (_kaestchen[logikIndex] != KaestchenStatus.Leer)
             {
+                ZeigeHinweis("Kästchen besetzt!", 2);
                 return;
             }
 
@@ -66,18 +76,29 @@ namespace TicTacToeWPF
 
             if (IstSpielGewonnen())
             {
-                hinweisLabel.Content = "Spiel gewonnen";
-                hinweisLabel.Visibility = Visibility.Visible;
+                ZeigeHinweis("Spiel gewonnen");
 
                 _istSpielBeendet = true;
             }
 
             if (IstSpielBeendet())
             {
-                hinweisLabel.Content = "Spiel unentschieden";
-                hinweisLabel.Visibility = Visibility.Visible;
+                ZeigeHinweis("Spiel unentschieden");
 
                 _istSpielBeendet = true;
+            }
+        }
+
+        private void ZeigeHinweis(string hinweis, int ausblendeZeitInSekunden=0)
+        {
+
+            hinweisLabel.Content = hinweis;
+            hinweisLabel.Visibility = Visibility.Visible;
+
+            if ((ausblendeZeitInSekunden > 0) && (!_blendeHinweisAusTimer.IsEnabled))
+            {
+                _blendeHinweisAusTimer.Interval = TimeSpan.FromSeconds(ausblendeZeitInSekunden);
+                _blendeHinweisAusTimer.Start();
             }
         }
 
