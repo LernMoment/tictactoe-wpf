@@ -18,4 +18,5 @@ Wie kannst du also aus diesem Übungskurs noch mehr für dich heraus holen?
 3. Teile deine Lösung / Fortschritt mit anderen! Weiter unten auf dieser Seite findest du Links zu den GitHub-Projekten von anderen Teilnehmern. Darin kannst du sehen was es noch für coole Lösungen gibt. Um deine Lösung (also den Stand deines Projektes hier auf GitHub) mit anderen Teilen möchtest, schreibe bitte eine Issue mit dem Hinweis das du in die "Teilnehmerliste" aufgenommen werden möchtest und den Link zu deinem Projekt hier auf GitHub.
 
 ## Teilnehmerliste
-- wird noch aktualisiert
+- [Marco](https://github.com/20Marco20/TicTacToe)
+- wird noch aktualisiert ...
