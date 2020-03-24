@@ -27,7 +27,7 @@ namespace TicTacToeWPF
             InitializeComponent();
         }
 
-        private void Kaestchen_0_0_Click(object sender, RoutedEventArgs e)
+        private void Kaestchen_Click(object sender, RoutedEventArgs e)
         {
             Button kaestchen = (Button)sender;
 
