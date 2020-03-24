@@ -27,6 +27,12 @@ namespace TicTacToeWPF
             InitializeComponent();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            _istErsterSpielerAmZug = true;
+            KaestchenLeeren();
+        }
+
         private void Kaestchen_Click(object sender, RoutedEventArgs e)
         {
             Button kaestchen = (Button)sender;
@@ -47,6 +53,21 @@ namespace TicTacToeWPF
                 kaestchen.Content = "O";
                 _istErsterSpielerAmZug = true;
             }
+        }
+
+        private void KaestchenLeeren()
+        {
+            kaestchen_0_0.Content = string.Empty;
+            kaestchen_1_0.Content = string.Empty;
+            kaestchen_2_0.Content = string.Empty;
+
+            kaestchen_0_1.Content = string.Empty;
+            kaestchen_1_1.Content = string.Empty;
+            kaestchen_2_1.Content = string.Empty;
+
+            kaestchen_0_2.Content = string.Empty;
+            kaestchen_1_2.Content = string.Empty;
+            kaestchen_2_2.Content = string.Empty;
         }
     }
 }
