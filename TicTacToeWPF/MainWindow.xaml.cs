@@ -31,6 +31,12 @@ namespace TicTacToeWPF
         {
             Button kaestchen = (Button)sender;
 
+            if (kaestchen.Content != null && kaestchen.Content.ToString() != "")
+            {
+                MessageBox.Show("Dieses Kästchen ist bereits belegt! Wähle ein anderes.");
+                return;
+            }
+
             if (_istErsterSpielerAmZug)
             {
                 kaestchen.Content = "X";
