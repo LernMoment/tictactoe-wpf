@@ -20,6 +20,8 @@ namespace TicTacToeWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool _istErsterSpielerAmZug = true;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,9 +29,18 @@ namespace TicTacToeWPF
 
         private void Kaestchen_0_0_Click(object sender, RoutedEventArgs e)
         {
-            var bisherigerVordergrund = kaestchen_0_0.Foreground;
-            kaestchen_0_0.Foreground = kaestchen_0_0.Background;
-            kaestchen_0_0.Background = bisherigerVordergrund;
+            Button kaestchen = (Button)sender;
+
+            if (_istErsterSpielerAmZug)
+            {
+                kaestchen.Content = "X";
+                _istErsterSpielerAmZug = false;
+            }
+            else
+            {
+                kaestchen.Content = "O";
+                _istErsterSpielerAmZug = true;
+            }
         }
     }
 }
