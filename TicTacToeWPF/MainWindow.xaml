@@ -22,7 +22,9 @@
 
         <!-- Du kannst den Name setzen wie du möchtest. Meine Benennung trägt -->
         <!-- hoffentlich etwas zum besseren Verständnis bei. -->
-        <Button x:Name="kaestchen_0_0" Grid.Column="0" Grid.Row="0" Content="X"/>
+        <Button x:Name="kaestchen_0_0" Grid.Column="0" Grid.Row="0" Content="X"
+                Background="#00A8C6" Foreground="#F9F2E7" FontSize="70"
+                BorderThickness="0.5" BorderBrush="LightGray"/>
         <Button x:Name="kaestchen_1_0" Grid.Column="1" Grid.Row="0" Content="O"/>
         <Button x:Name="kaestchen_2_0" Grid.Column="2" Grid.Row="0"/>
 
