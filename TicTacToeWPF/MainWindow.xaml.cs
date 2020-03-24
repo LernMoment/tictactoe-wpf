@@ -24,5 +24,12 @@ namespace TicTacToeWPF
         {
             InitializeComponent();
         }
+
+        private void kaestchen_0_0_Click(object sender, RoutedEventArgs e)
+        {
+            var bisherigerVordergrund = kaestchen_0_0.Foreground;
+            kaestchen_0_0.Foreground = kaestchen_0_0.Background;
+            kaestchen_0_0.Background = bisherigerVordergrund;
+        }
     }
 }
