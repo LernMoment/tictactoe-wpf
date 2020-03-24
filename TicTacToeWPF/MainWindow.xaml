@@ -17,7 +17,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid>
+    <Grid x:Name="Spielfeld">
         <!-- * ist für Width und Height der Standardwert und könnte weggelassen werden. -->
         <!-- Damit ich nicht jedesmal nachschauen muss, schreibe ich es hier trotzdem hin. -->
         <Grid.ColumnDefinitions>

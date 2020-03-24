@@ -30,12 +30,18 @@ namespace TicTacToeWPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _istErsterSpielerAmZug = true;
-            KaestchenLeeren();
+            StarteSpielNeu();
         }
 
         private void Kaestchen_Click(object sender, RoutedEventArgs e)
         {
             Button kaestchen = (Button)sender;
+
+            if (IstSpielfeldVoll())
+            {
+                StarteSpielNeu();
+                return;
+            }
 
             if (kaestchen.Content != null && kaestchen.Content.ToString() != "")
             {
@@ -55,7 +61,22 @@ namespace TicTacToeWPF
             }
         }
 
-        private void KaestchenLeeren()
+        private bool IstSpielfeldVoll()
+        {
+            foreach (var item in Spielfeld.Children)
+            {
+                Button kaestchen = item as Button;
+
+                if (kaestchen == null || kaestchen.Content.ToString() == "")
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        private void StarteSpielNeu()
         {
             kaestchen_0_0.Content = string.Empty;
             kaestchen_1_0.Content = string.Empty;
