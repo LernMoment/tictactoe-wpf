@@ -57,6 +57,9 @@ namespace TicTacToeWPF
             else
             {
                 kaestchen.Content = "O";
+                var vordergrund = kaestchen.Foreground;
+                kaestchen.Foreground = kaestchen.Background;
+                kaestchen.Background = vordergrund;
                 _istErsterSpielerAmZug = true;
             }
         }
@@ -81,14 +84,32 @@ namespace TicTacToeWPF
             kaestchen_0_0.Content = string.Empty;
             kaestchen_1_0.Content = string.Empty;
             kaestchen_2_0.Content = string.Empty;
-
             kaestchen_0_1.Content = string.Empty;
             kaestchen_1_1.Content = string.Empty;
             kaestchen_2_1.Content = string.Empty;
-
             kaestchen_0_2.Content = string.Empty;
             kaestchen_1_2.Content = string.Empty;
             kaestchen_2_2.Content = string.Empty;
+
+            kaestchen_0_0.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_1_0.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_2_0.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_0_1.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_1_1.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_2_1.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_0_2.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_1_2.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+            kaestchen_2_2.Background = (Brush)new BrushConverter().ConvertFrom("#00A8C6");
+
+            kaestchen_0_0.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_1_0.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_2_0.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_0_1.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_1_1.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_2_1.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_0_2.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_1_2.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
+            kaestchen_2_2.Foreground = (Brush)new BrushConverter().ConvertFrom("#F9F2E7");
         }
     }
 }
