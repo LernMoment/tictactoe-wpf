@@ -62,6 +62,23 @@ namespace TicTacToeWPF
                 kaestchen.Background = vordergrund;
                 _istErsterSpielerAmZug = true;
             }
+
+            if (IstSpielGewonnen())
+            {
+                MessageBox.Show("Spiel ist Gewonnen!");
+            }
+        }
+
+        private bool IstSpielGewonnen()
+        {
+            if (kaestchen_0_0.Content.ToString() != ""
+                && kaestchen_1_0.Content.ToString() == kaestchen_0_0.Content.ToString()
+                && kaestchen_2_0.Content.ToString() == kaestchen_1_0.Content.ToString())
+            {
+                return true;
+            }
+
+            return false;
         }
 
         private bool IstSpielfeldVoll()
