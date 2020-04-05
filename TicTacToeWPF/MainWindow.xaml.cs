@@ -71,9 +71,35 @@ namespace TicTacToeWPF
 
         private bool IstSpielGewonnen()
         {
-            if (kaestchen_0_0.Content.ToString() != ""
-                && kaestchen_1_0.Content.ToString() == kaestchen_0_0.Content.ToString()
-                && kaestchen_2_0.Content.ToString() == kaestchen_1_0.Content.ToString())
+            if (IstGleicherSpielstein(kaestchen_0_0, kaestchen_0_1, kaestchen_0_2))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(kaestchen_1_0, kaestchen_1_1, kaestchen_1_2))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(kaestchen_2_0, kaestchen_2_1, kaestchen_2_2))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(kaestchen_0_0, kaestchen_1_0, kaestchen_2_0))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(kaestchen_0_1, kaestchen_1_1, kaestchen_2_1))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(kaestchen_0_2, kaestchen_1_2, kaestchen_2_2))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(kaestchen_0_0, kaestchen_1_1, kaestchen_2_2))
+            {
+                return true;
+            }
+            else if (IstGleicherSpielstein(kaestchen_2_0, kaestchen_1_1, kaestchen_0_2))
             {
                 return true;
             }
@@ -81,6 +107,17 @@ namespace TicTacToeWPF
             return false;
         }
 
+        private bool IstGleicherSpielstein(Button erstesKaestchen, Button zweitesKaestchen, Button drittesKaestchen)
+        {
+            if (erstesKaestchen.Content.ToString() != ""
+                && erstesKaestchen.Content.ToString() == zweitesKaestchen.Content.ToString()
+                && zweitesKaestchen.Content.ToString() == drittesKaestchen.Content.ToString())
+            {
+                return true;
+            }
+
+            return false;
+        }
         private bool IstSpielfeldVoll()
         {
             foreach (var item in Spielfeld.Children)
