@@ -19,4 +19,5 @@ Wie kannst du also aus diesem Übungskurs noch mehr für dich heraus holen?
 
 ## Teilnehmerliste
 - [Marco](https://github.com/20Marco20/TicTacToe)
-- wird noch aktualisiert ...
+- [Boris](https://github.com/BorisPaffenhoz/Tic-Tac-Toe)
+- *Möchtest du auch deine Lösung hier verlinkt haben? Dann hinterlasse mir [hier einen Kommentar (inkl. Link zu deinem GitHub-Verzeichnis)](https://github.com/LernMoment/tictactoe-wpf/issues/2) oder füge den Link direkt via PullRequest (wenn du weißt wie das geht) ein!*
