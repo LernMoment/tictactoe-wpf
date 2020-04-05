@@ -63,8 +63,12 @@ namespace TicTacToeWPF
                 _istErsterSpielerAmZug = true;
             }
 
-            if (IstSpielGewonnen())
+            var gewinnReihe = SucheGewinnReihe();
+
+            if (gewinnReihe.Count == 3)
             {
+                HebeKaestchenHervor(gewinnReihe[0], gewinnReihe[1], gewinnReihe[2]);
+
                 if (_istErsterSpielerAmZug)
                 {
                     MessageBox.Show("Spieler 2 (O) hat gewonnen!");
@@ -77,50 +81,60 @@ namespace TicTacToeWPF
             }
         }
 
-        private bool IstSpielGewonnen()
+        private List<Button> SucheGewinnReihe()
         {
+            var resultat = new List<Button>();
+
             if (IstGleicherSpielstein(kaestchen_0_0, kaestchen_0_1, kaestchen_0_2))
             {
-                HebeKaestchenHervor(kaestchen_0_0, kaestchen_0_1, kaestchen_0_2);
-                return true;
+                resultat.Add(kaestchen_0_0);
+                resultat.Add(kaestchen_0_1);
+                resultat.Add(kaestchen_0_2);
             }
             else if (IstGleicherSpielstein(kaestchen_1_0, kaestchen_1_1, kaestchen_1_2))
             {
-                HebeKaestchenHervor(kaestchen_1_0, kaestchen_1_1, kaestchen_1_2);
-                return true;
+                resultat.Add(kaestchen_1_0);
+                resultat.Add(kaestchen_1_1);
+                resultat.Add(kaestchen_1_2);
             }
             else if (IstGleicherSpielstein(kaestchen_2_0, kaestchen_2_1, kaestchen_2_2))
             {
-                HebeKaestchenHervor(kaestchen_2_0, kaestchen_2_1, kaestchen_2_2);
-                return true;
+                resultat.Add(kaestchen_2_0);
+                resultat.Add(kaestchen_2_1);
+                resultat.Add(kaestchen_2_2);
             }
             else if (IstGleicherSpielstein(kaestchen_0_0, kaestchen_1_0, kaestchen_2_0))
             {
-                HebeKaestchenHervor(kaestchen_0_0, kaestchen_1_0, kaestchen_2_0);
-                return true;
+                resultat.Add(kaestchen_0_0);
+                resultat.Add(kaestchen_1_0);
+                resultat.Add(kaestchen_2_0);
             }
             else if (IstGleicherSpielstein(kaestchen_0_1, kaestchen_1_1, kaestchen_2_1))
             {
-                HebeKaestchenHervor(kaestchen_0_1, kaestchen_1_1, kaestchen_2_1);
-                return true;
+                resultat.Add(kaestchen_0_1);
+                resultat.Add(kaestchen_1_1);
+                resultat.Add(kaestchen_2_1);
             }
             else if (IstGleicherSpielstein(kaestchen_0_2, kaestchen_1_2, kaestchen_2_2))
             {
-                HebeKaestchenHervor(kaestchen_0_2, kaestchen_1_2, kaestchen_2_2);
-                return true;
+                resultat.Add(kaestchen_0_2);
+                resultat.Add(kaestchen_1_2);
+                resultat.Add(kaestchen_2_2);
             }
             else if (IstGleicherSpielstein(kaestchen_0_0, kaestchen_1_1, kaestchen_2_2))
             {
-                HebeKaestchenHervor(kaestchen_0_0, kaestchen_1_1, kaestchen_2_2);
-                return true;
+                resultat.Add(kaestchen_0_0);
+                resultat.Add(kaestchen_1_1);
+                resultat.Add(kaestchen_2_2);
             }
             else if (IstGleicherSpielstein(kaestchen_2_0, kaestchen_1_1, kaestchen_0_2))
             {
-                HebeKaestchenHervor(kaestchen_2_0, kaestchen_1_1, kaestchen_0_2);
-                return true;
+                resultat.Add(kaestchen_2_0);
+                resultat.Add(kaestchen_1_1);
+                resultat.Add(kaestchen_0_2);
             }
 
-            return false;
+            return resultat;
         }
 
         private bool IstGleicherSpielstein(Button erstesKaestchen, Button zweitesKaestchen, Button drittesKaestchen)
