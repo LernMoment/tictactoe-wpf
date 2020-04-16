@@ -48,6 +48,6 @@
         <Label x:Name="HinweisLabel" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"
                FontSize="50" Foreground="#f9f2e7"
                VerticalAlignment="Center" HorizontalAlignment="Center" 
-               Content="Test"/>
+               Content=""/>
     </Grid>
 </Window>

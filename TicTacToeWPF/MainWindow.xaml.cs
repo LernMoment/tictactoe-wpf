@@ -42,10 +42,15 @@ namespace TicTacToeWPF
                 StarteSpielNeu();
                 return;
             }
+            
+            if (HinweisLabel.Content != null && HinweisLabel.Content.ToString() != string.Empty)
+            {
+                HinweisLabel.Content = string.Empty;
+            }
 
             if (kaestchen.Content != null && kaestchen.Content.ToString() != "")
             {
-                MessageBox.Show("Dieses Kästchen ist bereits belegt! Wähle ein anderes.");
+                HinweisLabel.Content = "Kästchen belegt!";
                 return;
             }
 
