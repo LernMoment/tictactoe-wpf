@@ -46,8 +46,7 @@
         <Button x:Name="kaestchen_2_2" Grid.Column="2" Grid.Row="2" Click="Kaestchen_Click"/>
 
         <Label x:Name="HinweisLabel" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"
-               FontSize="50" Foreground="#f9f2e7"
-               VerticalAlignment="Center" HorizontalAlignment="Center" 
-               Content=""/>
+               FontSize="50" FontWeight="Bold" Background="#E5D3D3D3"
+               VerticalAlignment="Center" HorizontalAlignment="Center"/>
     </Grid>
 </Window>
