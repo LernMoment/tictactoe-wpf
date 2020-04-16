@@ -76,11 +76,11 @@ namespace TicTacToeWPF
 
                 if (_istErsterSpielerAmZug)
                 {
-                    MessageBox.Show("Spieler 2 (O) hat gewonnen!");
+                    HinweisLabel.Content = "O gewinnt!";
                 }
                 else
                 {
-                    MessageBox.Show("Spieler 1 (X) hat gewonnen");
+                    HinweisLabel.Content = "X gewinnt!";
                 }
                 StarteSpielNeu();
             }
