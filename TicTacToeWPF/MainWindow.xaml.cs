@@ -46,11 +46,13 @@ namespace TicTacToeWPF
             if (HinweisLabel.Content != null && HinweisLabel.Content.ToString() != string.Empty)
             {
                 HinweisLabel.Content = string.Empty;
+                HinweisLabel.Visibility = Visibility.Hidden;
             }
 
             if (kaestchen.Content != null && kaestchen.Content.ToString() != "")
             {
                 HinweisLabel.Content = "Kästchen belegt!";
+                HinweisLabel.Visibility = Visibility.Visible;
                 return;
             }
 
@@ -77,10 +79,12 @@ namespace TicTacToeWPF
                 if (_istErsterSpielerAmZug)
                 {
                     HinweisLabel.Content = "O gewinnt!";
+                    HinweisLabel.Visibility = Visibility.Visible;
                 }
                 else
                 {
                     HinweisLabel.Content = "X gewinnt!";
+                    HinweisLabel.Visibility = Visibility.Visible;
                 }
                 StarteSpielNeu();
             }
