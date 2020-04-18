@@ -93,6 +93,8 @@ namespace TicTacToeWPF
 
             if (IstSpielfeldVoll())
             {
+                HinweisLabel.Content = "Keiner gewinnt!";
+                HinweisLabel.Visibility = Visibility.Visible;
                 _istSpielBeendet = true;
             }
         }
@@ -190,6 +192,9 @@ namespace TicTacToeWPF
         private void StarteSpielNeu()
         {
             _istSpielBeendet = false;
+
+            HinweisLabel.Visibility = Visibility.Hidden;
+            HinweisLabel.Content = string.Empty;
 
             kaestchen_0_0.Content = string.Empty;
             kaestchen_1_0.Content = string.Empty;
