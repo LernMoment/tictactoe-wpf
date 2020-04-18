@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace TicTacToeWPF
 {
@@ -23,9 +24,18 @@ namespace TicTacToeWPF
         private bool _istErsterSpielerAmZug = true;
         private bool _istSpielBeendet = false;
 
+        private readonly DispatcherTimer _blendeHinweisAusTimer = new DispatcherTimer();
+
         public MainWindow()
         {
             InitializeComponent();
+            _blendeHinweisAusTimer.Tick += BlendeHinweisAus;
+        }
+
+        private void BlendeHinweisAus(object sender, EventArgs e)
+        {
+            _blendeHinweisAusTimer.Stop();
+            HinweisLabel.Visibility = Visibility.Hidden;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -43,16 +53,9 @@ namespace TicTacToeWPF
                 StarteSpielNeu();
             }
             
-            if (HinweisLabel.Content != null && HinweisLabel.Content.ToString() != string.Empty)
-            {
-                HinweisLabel.Content = string.Empty;
-                HinweisLabel.Visibility = Visibility.Hidden;
-            }
-
             if (kaestchen.Content != null && kaestchen.Content.ToString() != "")
             {
-                HinweisLabel.Content = "Kästchen belegt!";
-                HinweisLabel.Visibility = Visibility.Visible;
+                ZeigeHinweis("Kästchen belegt!", 1);
                 return;
             }
 
@@ -78,24 +81,32 @@ namespace TicTacToeWPF
 
                 if (_istErsterSpielerAmZug)
                 {
-                    HinweisLabel.Content = "O gewinnt!";
-                    HinweisLabel.Visibility = Visibility.Visible;
+                    ZeigeHinweis("O gewinnt!");
                 }
                 else
                 {
-                    HinweisLabel.Content = "X gewinnt!";
-                    HinweisLabel.Visibility = Visibility.Visible;
+                    ZeigeHinweis("X gewinnt!");
                 }
-
                 _istSpielBeendet = true;
                 return;
             }
 
             if (IstSpielfeldVoll())
             {
-                HinweisLabel.Content = "Keiner gewinnt!";
-                HinweisLabel.Visibility = Visibility.Visible;
+                ZeigeHinweis("Keiner gewinnt!");
                 _istSpielBeendet = true;
+            }
+        }
+
+        private void ZeigeHinweis(string hinweis, int ausblendeZeitInSekunden = 0)
+        {
+            HinweisLabel.Content = hinweis;
+            HinweisLabel.Visibility = Visibility.Visible;
+
+            if ((ausblendeZeitInSekunden > 0) && (!_blendeHinweisAusTimer.IsEnabled))
+            {
+                _blendeHinweisAusTimer.Interval = TimeSpan.FromSeconds(ausblendeZeitInSekunden);
+                _blendeHinweisAusTimer.Start();
             }
         }
 
