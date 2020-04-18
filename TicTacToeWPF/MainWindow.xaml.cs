@@ -21,6 +21,7 @@ namespace TicTacToeWPF
     public partial class MainWindow : Window
     {
         private bool _istErsterSpielerAmZug = true;
+        private bool _istSpielBeendet = false;
 
         public MainWindow()
         {
@@ -37,7 +38,7 @@ namespace TicTacToeWPF
         {
             Button kaestchen = (Button)sender;
 
-            if (IstSpielfeldVoll())
+            if (_istSpielBeendet)
             {
                 StarteSpielNeu();
                 return;
@@ -86,7 +87,13 @@ namespace TicTacToeWPF
                     HinweisLabel.Content = "X gewinnt!";
                     HinweisLabel.Visibility = Visibility.Visible;
                 }
-                StarteSpielNeu();
+
+                _istSpielBeendet = true;
+            }
+
+            if (IstSpielfeldVoll())
+            {
+                _istSpielBeendet = true;
             }
         }
 
@@ -171,7 +178,7 @@ namespace TicTacToeWPF
             {
                 Button kaestchen = item as Button;
 
-                if (kaestchen == null || kaestchen.Content.ToString() == "")
+                if (kaestchen != null && kaestchen.Content.ToString() == "")
                 {
                     return false;
                 }
@@ -182,6 +189,8 @@ namespace TicTacToeWPF
 
         private void StarteSpielNeu()
         {
+            _istSpielBeendet = false;
+
             kaestchen_0_0.Content = string.Empty;
             kaestchen_1_0.Content = string.Empty;
             kaestchen_2_0.Content = string.Empty;
