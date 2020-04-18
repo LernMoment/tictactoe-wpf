@@ -192,6 +192,7 @@ namespace TicTacToeWPF
         private void StarteSpielNeu()
         {
             _istSpielBeendet = false;
+            _istErsterSpielerAmZug = true;
 
             HinweisLabel.Visibility = Visibility.Hidden;
             HinweisLabel.Content = string.Empty;
