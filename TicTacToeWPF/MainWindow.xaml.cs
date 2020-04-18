@@ -88,6 +88,7 @@ namespace TicTacToeWPF
                 }
 
                 _istSpielBeendet = true;
+                return;
             }
 
             if (IstSpielfeldVoll())
