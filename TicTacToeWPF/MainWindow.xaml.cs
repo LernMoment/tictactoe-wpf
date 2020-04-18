@@ -41,7 +41,6 @@ namespace TicTacToeWPF
             if (_istSpielBeendet)
             {
                 StarteSpielNeu();
-                return;
             }
             
             if (HinweisLabel.Content != null && HinweisLabel.Content.ToString() != string.Empty)
