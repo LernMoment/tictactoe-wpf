@@ -21,5 +21,5 @@ Wie kannst du also aus diesem Übungskurs noch mehr für dich heraus holen?
 - [Marco](https://github.com/20Marco20/TicTacToe)
 - [Boris](https://github.com/BorisPaffenhoz/Tic-Tac-Toe)
 - [Muffl](https://github.com/Muffl/Wpf_TicTacToe)
-- [MK-NEUKO](https://github.com/MK-NEUKO/Tic-Tac-Toe)
+- [MK-NEUKO](https://github.com/MK-NEUKO/TicTacToeOOP)
 - *Möchtest du auch deine Lösung hier verlinkt haben? Dann hinterlasse mir [hier einen Kommentar (inkl. Link zu deinem GitHub-Verzeichnis)](https://github.com/LernMoment/tictactoe-wpf/issues/2) oder füge den Link direkt via PullRequest (wenn du weißt wie das geht) ein!*
